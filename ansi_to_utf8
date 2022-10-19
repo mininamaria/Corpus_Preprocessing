@@ -1,0 +1,25 @@
+import codecs
+import os
+
+# oldfile:path to UTF8 file
+# newfile:path to the ANSI file to be saved
+
+
+def convertUTF8ToANSI(oldfile, newfile):
+    f = codecs.open(oldfile, 'r', 'mbcs')
+    ansistr = f.read()
+    f.close()
+# Transcode ANSI strings into UTF8 strings
+    outstr = ansistr.encode('utf8')
+
+# Save the transcoded text in binary format
+    f = open(newfile, 'wb')
+    f.write(outstr)
+
+
+for f in os.scandir('c:\\11'):
+    if f.is_file():
+        outfile=f.path+'.new'
+        print (f.path)
+        convertUTF8ToANSI(f.path, f.path)
+
