@@ -1,0 +1,30 @@
+import os
+from pymystem3 import Mystem
+
+# folder Path. Don't forget to enter yours!
+path = "C:/11"
+
+# change the directory
+os.chdir(path)
+m = Mystem()
+
+
+# lemmatize text File
+def lemmatization(file):
+    file_path = f"{path}/{file}"
+    print(file_path)
+    with open(file_path, 'r') as f:
+        lemmas = m.lemmatize(f.read())
+        with open('edited_' + file, 'w') as f_to_w:
+            f_to_w.write(''.join(lemmas))
+        print("Mission complete! New file is ready!", file)
+
+
+# iterate through all file
+dir_list = os.listdir()
+for file in dir_list:
+    # Check whether file is in text format or not
+    if file.endswith(".txt"):
+        # call function
+        lemmatization(file)
+        
