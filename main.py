@@ -1,12 +1,5 @@
-# Import Module
 import os
 from pymystem3 import Mystem
-
-#text = "Красивая мама красиво мыла раму"
-#m = Mystem()
-#lemmas = m.lemmatize(text)
-#print(''.join(lemmas))
-
 
 # Folder Path
 path = "C:/Users/Maria/Desktop/temporary"
